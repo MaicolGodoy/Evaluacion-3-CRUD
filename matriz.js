@@ -96,15 +96,21 @@ function eliminarProducto(){
 
 function calcularTotal(){
 	var id=document.getElementById("id").value;
-	
 	var largo=matriz.length;
-	for(var x=0; x<largo;x++){
-		if(matriz[x][0]==id){
-			var calculo=(matriz[x][2])*(matriz[x][4]);
-			alert("El calculo de: "+matriz[x][1]+" entre precio y stock es: "+calculo);
-			document.getElementById("id").value="";
-			}
+
+	if(id){
+		for(var x=0; x<largo;x++){
+			if(matriz[x][0]==id){
+				var calculo=(matriz[x][2])*(matriz[x][4]);
+				alert("El calculo de: "+matriz[x][1]+" entre precio y stock es: "+calculo);
+				document.getElementById("id").value="";
+				}
+		}
 	}
+	else{
+		alert("Ingrese la Id del producto a calcular");
+	}
+
 	
 	
 }
