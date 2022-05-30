@@ -9,8 +9,6 @@ function mostrarProducto(){
 			"Precio: "+matriz[x][2]+"\n"+
 			"Descripcion: "+matriz[x][3]+"\n"+
 			"Stock: "+matriz[x][4]
-			
-			
 			);
 
 	}
@@ -41,4 +39,64 @@ function insertarProducto(){
 	else {
 		alert("Error: Producto existente");
 	}
+}
+
+function actualizarProducto(){
+	var id=document.getElementById("id").value;
+	var precio=document.getElementById("precio").value;
+	var stock=document.getElementById("stock").value;
+
+	var largo=matriz.length;
+	if(id&&precio&&stock){
+		for(var x=0; x<largo;x++){
+		
+			if(matriz[x][0]==id){
+				matriz[x][2]=[precio];
+				matriz[x][4]=[stock];
+				alert("Precio y Stock Actualizado");
+				document.getElementById("id").value="";
+				document.getElementById("precio").value="";
+				document.getElementById("stock").value="";
+			}
+		}
+	}	
+	else{
+		alert("Ingrese Id, precio y stock");
+	}
+
+
+}
+
+function eliminarProducto(){
+	var id=document.getElementById("id").value;
+	
+	var largo=matriz.length;
+	if(id){
+
+		for(var x=0; x<largo;x++){
+			if(matriz[x][0]==id){
+				matriz.splice([x][0],1);
+				alert("Producto eliminado");
+				document.getElementById("id").value="";
+				}
+		}
+	}
+	else{
+		alert("Ingrese el Id del producto a eliminar");
+	}
+}
+
+function calcularTotal(){
+	var id=document.getElementById("id").value;
+	
+	var largo=matriz.length;
+	for(var x=0; x<largo;x++){
+		if(matriz[x][0]==id){
+			var calculo=(matriz[x][2])*(matriz[x][4]);
+			alert("El calculo de: "+matriz[x][1]+" entre precio y stock es: "+calculo);
+			document.getElementById("id").value="";
+			}
+	}
+	
+	
 }
