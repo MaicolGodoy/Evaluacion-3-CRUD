@@ -22,23 +22,31 @@ function insertarProducto(){
 	var stock=document.getElementById("stock").value;
 	var largo=matriz.length;
 	var existe=false;
-    for(var x=0; x<largo;x++){
-        if(matriz[x][0]==id){
-        existe=true;
+    if(id&&nombre&&precio&&descripcion&&stock){
+		for(var x=0; x<largo;x++){
+			if(matriz[x][0]==id){
+			existe=true;
+			}
 		}
-    }
-	if(!existe){
-		matriz.push([id,nombre,precio,descripcion,stock]);
-		alert("Producto insertado");
-		document.getElementById("id").value="";
-		document.getElementById("nombre").value="";
-		document.getElementById("precio").value="";
-		document.getElementById("descripcion").value="";
-		document.getElementById("stock").value="";
+		if(!existe){
+			matriz.push([id,nombre,precio,descripcion,stock]);
+			alert("Producto insertado");
+			document.getElementById("id").value="";
+			document.getElementById("nombre").value="";
+			document.getElementById("precio").value="";
+			document.getElementById("descripcion").value="";
+			document.getElementById("stock").value="";
+		}
+		else {
+			alert("Error: Producto existente");
+		}
 	}
-	else {
-		alert("Error: Producto existente");
+	else{
+		alert("Error: Rellene todos los campos");
 	}
+
+
+
 }
 
 function actualizarProducto(){
